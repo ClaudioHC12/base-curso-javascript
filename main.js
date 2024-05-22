@@ -13,7 +13,7 @@ function modificarHtmlMensajes() {
     var concatenacion = nombre + " ." + edad
 
     //Agregar div en html con id="datos"
-    var datos = document.getElementById("datos") 
+    var datos = document.getElementById("datos")
     datos.innerHTML = concatenacion
     datos.innerHTML = `
         <h1>soy la caja de datos</h1>
@@ -164,4 +164,112 @@ function funcionValidarPalindromo() {
         console.log("no es palindromo")
     }
     console.log(nombre, cadena)
+}
+
+////////////// Parte 2 Curso////////////////////////////
+
+function arreglosEnJavaScript() {
+    //Uso de arreglos, listas
+    let arrayNumerico = [3, 4, 1, 2, 5];
+    let arrayOrdenado = arrayNumerico.sort();
+    console.log(arrayOrdenado);
+
+    const array = new Array(5);
+    array[0] = 'curso de html';
+    array[1] = [1, 2, 3];
+    array[2] = { nombre: 'claudio', edad: 24 };
+    console.log(array);
+
+    const arrayAcciones = ['Despertarse', 'Comer', 'Estudiar', 'Dormir'];
+    let texto = '';
+    for (let index = 0; index < arrayAcciones.length; index++) {
+        texto += '<li>' + arrayAcciones[index] + '</li>';
+    }
+    //Agregar elemento <ul id="seleccionable"></ul> al html
+    document.getElementById('seleccionable').innerHTML = texto;
+}
+
+function funcionesDeArreglos() {
+    //Funciones de Arrays 
+    //Funcion Filter
+    const arrayFrutas = ['Manzana', 'Pera', 'Banana', 'Naranja', 'Manzana', 'Naranja'];
+    const resultado = arrayFrutas.filter(x => x == 'Manzana');
+    console.log(resultado);
+
+    const listaObjetos = [
+        { nombre: 'claudio', edad: 24 },
+        { nombre: 'luis', edad: 28 },
+        { nombre: 'jose', edad: 19 },
+        { nombre: 'rosa', edad: 50 },
+        { nombre: 'ignacio', edad: 52 }
+    ];
+    const listaFiltrada = listaObjetos.filter((x) => x.edad > '30');
+    console.log(listaFiltrada);
+
+    //Funcion Map
+    //arrayFrutas = ['Manzana', 'Pera', 'Banana', 'Naranja', 'Manzana', 'Naranja']
+    const listaFrutas = arrayFrutas.map((x) => {
+        if (x == 'Manzana') { return 'Kiwui' }
+        else { return 'mango' }
+    });
+    console.log(listaFrutas);
+
+    const listaObjetosMap = listaObjetos.map((x) => {
+        if (x.edad <= 30) { return { nombre: x.nombre, estado: 'RAMOS A.' } }
+        else { return { nombre: x.nombre, estado: 'NILO C.' } }
+    });
+    console.log(listaObjetosMap);
+
+    //Funcion Fill
+    const listaFill = arrayFrutas.fill('Pera', 3);
+    console.log(listaFill);
+
+    //Funcion Find 
+    const fruta = arrayFrutas.find((x) => x == 'Pera');
+    console.log(fruta);
+    const objetoFind = listaObjetos.find((x) => (x.nombre == 'claudio'));
+    const objetoFind_2 = listaObjetos.find((x) => {
+        if (x.nombre == 'claudio') {
+            return x;
+        }
+    });
+    console.log(objetoFind_2);
+
+    //Funcion FindIndex
+    const frutasIndex = arrayFrutas.findIndex((x) => x == 'Banana');
+    console.log(frutasIndex);
+
+    //Funcion Some
+    const frutasSome = arrayFrutas.some((x) => x == 'Pera');
+    console.log(frutasSome);
+
+    //Funcion Every
+    const frutasEvery = arrayFrutas.every((x) => x == 'Pera');
+    console.log(frutasEvery);
+
+    const ultimaFruta = arrayFrutas.pop();//obtener y eliminar del arrary, ultimo elemento
+    const primerFruta = arrayFrutas.shift();//obtener y eliminar del arrary, primer elemento
+    arrayFrutas.push('Ciruela');//agregar elemento al final del array
+    arrayFrutas.unshift('Uva');//agregar elemento al inicio del array
+
+    let listaIngredientes = [
+        { clave: 'manzana', precio: 10 },
+        { clave: 'platano', precio: 12 },
+        { clave: 'uva', precio: 15 },
+        { clave: 'pera', precio: 13 },
+    ];
+    listaIngredientes.forEach((ingrediente) =>
+        ingrediente.precio += 5
+    );
+    console.log(listaIngredientes);
+}
+
+function formatoFecha() {
+    // Fecha(Date) en Js  YYYY-MM-DD
+    const fecha = new Date();
+    let dia = String(fecha.getDate()).padStart(2, '0');
+    let mes = String(fecha.getMonth() + 1).padStart(2, '0');
+    let anio = fecha.getFullYear();
+    const fechaFormateada = anio + '-' + mes + '-' + dia;
+    console.log(fechaFormateada);
 }

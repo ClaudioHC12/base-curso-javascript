@@ -273,3 +273,134 @@ function formatoFecha() {
     const fechaFormateada = anio + '-' + mes + '-' + dia;
     console.log(fechaFormateada);
 }
+
+function condicionales() {
+    //Condicionales
+    let edadPersona = 24;
+    if (edadPersona >= 18 && edadPersona <= 60) {
+        console.log('Puedes ingresar a la plaza FSA');
+    } else if (edadPersona < 18) {
+        console.log('No puedes ingresar, eres menor de edad');
+    } else {
+        console.log('No se recomienda ingresar');
+    }
+
+    let fecha = new Date();
+    switch (fecha.getDay()) {
+        case 1:
+            console.log('Lunes');
+            break;
+        case 2:
+            console.log('Martes');
+            break;
+        case 3:
+            console.log('Miercoles');
+            break;
+        case 4:
+            console.log('Jueves');
+            break;
+        case 5:
+            console.log('Viernes');
+            break;
+        case 6:
+            console.log('Sabado');
+            break;
+        case 2:
+            console.log('Domingo');
+            break;
+        default:
+            console.log('Ingrese un dia valido');
+            break;
+    }
+
+    //operador ternario
+    let resultado = (fecha.getFullYear() >= 2000) ? 'milenial' : 'X-men';
+    console.log(resultado);
+}
+
+function buclesJS() {
+    //Bucles
+    //Agregar elemento <select name="drop" id="select"></select>
+    let comboBox = document.getElementById('select');
+    let arreglo = ['Angular', 'React', 'Vue'];
+    for (let index = 0; index < arreglo.length; index++) {
+        comboBox.innerHTML += `<option value="${arreglo[index]}">${arreglo[index]}</option>`;
+    }
+
+    for (const iterator of arreglo) {
+        //console.log(iterator);
+    }
+
+    let objeto = { nombre: 'claudio', edad: 24 };
+    for (const key in objeto) {
+        //console.log(objeto[key]);;
+    }
+
+    let arrayNumeros = [1, 2, 3, 4, 5];
+    let total = 0;
+    arrayNumeros.forEach(element => {
+        total += element;
+    });
+    //console.log(total);
+
+    let numeroIncremento = 0;
+    while (numeroIncremento < 10) {
+        numeroIncremento++;
+        if ((numeroIncremento % 2) == 0) {
+            continue;
+        }
+        //console.log(numeroIncremento);
+    }
+
+    let cadena = 'claudio';
+    let indice = 0;
+    do {
+        if (cadena == undefined || cadena == null || cadena.length == 0) break;
+        console.log(cadena[indice]);
+        indice++;
+    } while (indice < cadena.length);
+}
+
+function listasTipoSetyMap() {
+    //Set y Maps
+    let listaSet = new Set(['claudio', 'luis', 'jose', 'jose']);
+    listaSet.add('rosa');
+    //console.log(listaSet);
+
+    let mapa = new Map([
+        ['laptop', 10],
+        ['pc', 15],
+        ['iphone', 20]
+    ]);
+    mapa.set('smart watch', 13);
+    let elemento = mapa.has('smart watch');
+    console.log(mapa);
+    console.log(elemento);
+}
+
+function verificarTiposDatos() {
+    //TypeOf y InstanceOf  (verificar tipo de datos)
+    let a = typeof 'aaa';
+    let b = typeof 1;
+    let c = typeof [];
+    console.log(c);
+
+    let d = [];
+    let e = d instanceof Array;
+    console.log(e);
+}
+
+function conversionesTiposDatos() {
+    //conversiones tipos de datos
+    let a = parseInt('2.3');
+    let b = a.toString();
+    let c = Boolean(0);
+    console.log(c);
+
+    let num = 1;
+    if (num) {// null, undefined, 0, '' = false   ...-1,1...,' ' = true
+        console.log('si');
+    }
+}
+
+

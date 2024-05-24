@@ -403,4 +403,75 @@ function conversionesTiposDatos() {
     }
 }
 
+function expresionesRegulares() {
+    //Regex: Expresiones regulares
+    let texto = 'curso de Javascript en tiempo record';
+    let busqueda = texto.search(/javascript/i);
+    console.log(busqueda);
 
+    /*
+    Modificadores
+        i: Ignorar mayusculas y minusculas
+        g: Buscar en todo el texto pasado
+        m: Busqueda multinea
+     */
+
+    let pattern = /Tiempo/i;
+    let resultado = pattern.test(texto);
+    resultado = pattern.exec(texto);
+    console.log(resultado);
+
+    let patternEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    console.log(patternEmail.test('claudio12@gmail.com'));
+}
+
+function manejoErroresJS() {
+    //Manejo de Errores
+    try {
+        console.log('llamando al Backend...');
+        throw ('403-Not authorized');//Lanzar Excepcion
+        console.log('!Se realizó con exito Exito');
+    } catch (error) {
+        console.log('Algo salió mal:', error);
+    } finally {
+        console.log('Finalizado');
+    }
+}
+
+function Callbacks() {
+    // Callbacks
+    function mostrarConsola(num) {
+        console.log(num);
+    }
+    //se pasa una funcion como parametro
+    function calcular(num1, num2, callback) {
+        let suma = num1 + num2;
+        callback(suma);
+    }
+    calcular(1, 2, mostrarConsola);
+}
+
+function promesas() {
+    //Promesas
+    let promesa = new Promise((response, reject) => {
+        setTimeout(() => {
+            let apiResponse = {
+                data: {
+                    id: 1,
+                    user: 'claudiohc'
+                },
+                statusCode: '200-OK'
+            }
+            response(apiResponse);
+            //reject({ message: 'Server Error', code: '505' });
+        }, 5000);
+
+    });
+    console.log('ejecutando promesa en paralelo');
+    promesa.then((res) => {
+        console.log(res);
+    }).catch((error) => {
+        console.error(error);
+    });
+    console.log('procesando UI');
+}

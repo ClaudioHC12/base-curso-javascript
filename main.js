@@ -475,3 +475,76 @@ function promesas() {
     });
     console.log('procesando UI');
 }
+
+function ejecucionAsyncrona() {
+    //Async/await
+    let promesa1 = new Promise((response) => {
+        setTimeout(() => {
+            response('Promesa 1 procesada');
+        }, 2500);
+    });
+    let promesa2 = new Promise((response) => {
+        setTimeout(() => {
+            response('Promesa 2 procesada');
+        }, 1000);
+    });
+
+    async function ejecutarPromesas() {
+        let respPromesa1 = await promesa1;
+        console.log(respPromesa1);
+        let respPromesa2 = await promesa2;
+        console.log(respPromesa2);
+    }
+    ejecutarPromesas()
+}
+
+//Fetch, APIs y JSON
+const url = 'https://jsonplaceholder.typicode.com';
+
+let query = 'todos';
+//GET
+fetch(`${url}/${query}`)
+      .then(response => response.json())
+      .then(json => console.log(json));
+
+//POST
+let requestBody = {title: 'Mexico hay hay', body: 'larala larala', userId: 1};
+fetch(`${url}/posts`, {
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8'
+  },
+  body: JSON.stringify(requestBody)
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+//PUT
+let requestBody2 = {title: 'Mexico lindo', body: 'ajua', userId: 1, id:101};
+fetch(`${url}/posts/1`, {
+  method: 'PUT',
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8'
+  },
+  body: JSON.stringify(requestBody2)
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+//PATCH
+let modificacion = {title: 'Mexico lindo'};
+fetch(`${url}/posts/2`, {
+  method: 'PATCH',
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8'
+  },
+  body: JSON.stringify(modificacion)
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+//DELETE
+const elemento = 3;
+fetch(`${url}/posts/${elemento}`, {
+  method: 'DELETE',
+});

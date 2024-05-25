@@ -1,0 +1,78 @@
+.form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  h3{
+    text-align: center;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 5px;
+    border-radius: 5px;
+    /*border: 1px solid #ccc;*/
+  }
+  
+  button[type="submit"] {
+    /*padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;*/
+    cursor: pointer;
+    
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+  }
+
+  #cardfloor{
+    text-align: right;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://img.freepik.com/foto-gratis/colores-vibrantes-que-arremolinan-caos-submarino-futurista-generado-ia_188544-9692.jpg?w=1060&t=st=1716597430~exp=1716598030~hmac=9c0e5fe16bfa92ea67d94d48fb2a68b0bf046ff6d63eda38f75977871e772f9f') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    position: relative;
+    width: 300px;
+    /*height: 400px;*/
+}
+
+.blurred-background {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Ligera opacidad para el color de fondo */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Soporte para navegadores WebKit */
+    border-radius: 15px;
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Para asegurar que el contenido esté por encima del fondo difuminado */
+    padding: 15px;
+    color: white;
+    /*text-align: center;
+    font-size: 1.5em;*/
+}

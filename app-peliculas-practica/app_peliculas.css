@@ -1,0 +1,65 @@
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ABABB0  ;
+  }
+  
+  input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0B93B8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #results {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .movie {
+    min-height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #332f2f;
+    border-radius: 12px;
+  }
+  
+  .movie img {
+    width: 100px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .movie h2 {
+    font-size: 18px;
+    margin-top: 0;
+  }
+  
+  .movie p {
+    margin: 5px 0;
+  }
+  
+  body{
+    background-color: #151515;
+    color: #EEEEF3  ;
+  }
+
+  .asd{
+    text-align: center;
+    color: #db3406;
+    font-size: 20px;
+  }
